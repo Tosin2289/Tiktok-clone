@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../constants/constants.dart';
 import '../../widgets/text_input_field.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class SignupScreen extends StatelessWidget {
+  SignupScreen({super.key});
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -22,10 +22,40 @@ class LoginScreen extends StatelessWidget {
                       fontWeight: FontWeight.w900,
                       color: buttonColor,
                       fontSize: 35)),
-              const Text("Login",
+              const Text("Register",
                   style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25)),
               const SizedBox(
                 height: 25,
+              ),
+              Stack(
+                children: [
+                  CircleAvatar(
+                    radius: 60,
+                    backgroundImage: const NetworkImage(
+                        'https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png'),
+                    backgroundColor: Colors.grey.shade800,
+                  ),
+                  Positioned(
+                      bottom: -6,
+                      left: 80,
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Iconsax.add_circle)))
+                ],
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: TextInputField(
+                  controller: _usernameController,
+                  labelText: 'username',
+                  icon: Iconsax.personalcard,
+                ),
+              ),
+              const SizedBox(
+                height: 15,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -60,7 +90,7 @@ class LoginScreen extends StatelessWidget {
                             const BorderRadius.all(Radius.circular(10))),
                     child: const Center(
                         child: Text(
-                      'Login',
+                      'Register',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                     ))),
@@ -72,13 +102,13 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    "Dont't have an account?",
+                    "Already have an account?",
                     style: TextStyle(fontSize: 20),
                   ),
                   TextButton(
                       onPressed: () {},
                       child: Text(
-                        "Register",
+                        "Login",
                         style: TextStyle(fontSize: 20, color: buttonColor),
                       )),
                 ],
@@ -90,3 +120,5 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+
+class _passwordController {}

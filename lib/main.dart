@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone/views/screens/auth/login_screen.dart';
+import 'package:tiktok_clone/views/screens/auth/signup_screen.dart';
 
 import 'constants/constants.dart';
 
@@ -15,9 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'TikTok Clone',
-      theme:
-          ThemeData.dark().copyWith(scaffoldBackgroundColor: backgroundColor),
-      home: LoginScreen(),
+      theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: backgroundColor, primaryColor: buttonColor),
+      home: SignupScreen(),
     );
   }
 }
