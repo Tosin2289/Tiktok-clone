@@ -49,18 +49,40 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              Container(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width - 40,
-                  decoration: BoxDecoration(
-                      color: buttonColor,
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(10))),
-                  child: const Center(
+              InkWell(
+                onTap: () {},
+                child: Container(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width - 40,
+                    decoration: BoxDecoration(
+                        color: buttonColor,
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10))),
+                    child: const Center(
+                        child: Text(
+                      'Login',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                    ))),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Dont't have an account?",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  TextButton(
+                      onPressed: () {},
                       child: Text(
-                    'Login',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ))),
+                        "Register",
+                        style: TextStyle(fontSize: 20, color: buttonColor),
+                      ))
+                ],
+              ),
             ],
           ),
         ),
