@@ -8,6 +8,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:tiktok_clone/constants/constants.dart';
 
 import '../models/user.dart' as model;
+import '../views/screens/auth/login_screen.dart';
+import '../views/screens/home_screen.dart';
 
 class AuthController extends GetxController {
   static AuthController instance = Get.find();
@@ -15,23 +17,23 @@ class AuthController extends GetxController {
   late Rx<File?> _pickedImage;
 
   File? get profilePhoto => _pickedImage.value;
-  User get user => _user.value!;
+  // User get user => _user.value!;
 
-  // @override
-  // void onReady() {
-  //   super.onReady();
-  //   _user = Rx<User?>(firebaseAuth.currentUser);
-  //   _user.bindStream(firebaseAuth.authStateChanges());
-  //   ever(_user, _setInitialScreen);
-  // }
+  @override
+  void onReady() {
+    super.onReady();
+    _user = Rx<User?>(firebaseAuth.currentUser);
+    _user.bindStream(firebaseAuth.authStateChanges());
+    ever(_user, _setInitialScreen);
+  }
 
-  // _setInitialScreen(User? user) {
-  //   if (user == null) {
-  //     Get.offAll(() => LoginScreen());
-  //   } else {
-  //     Get.offAll(() => const HomeScreen());
-  //   }
-  // }
+  _setInitialScreen(User? user) {
+    if (user == null) {
+      Get.offAll(() => LoginScreen());
+    } else {
+      Get.offAll(() => const HomeScreen());
+    }
+  }
 
   void pickImage() async {
     final pickedImage =
@@ -107,7 +109,7 @@ class AuthController extends GetxController {
       }
     } catch (e) {
       Get.snackbar(
-        'Error Loggin gin',
+        'Error Logging in',
         e.toString(),
       );
     }

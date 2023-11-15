@@ -44,13 +44,17 @@ class LoginScreen extends StatelessWidget {
                   controller: _passwordController,
                   labelText: 'Password',
                   icon: Iconsax.password_check,
+                  isObscure: true,
                 ),
               ),
               const SizedBox(
                 height: 30,
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  authController.loginUser(
+                      _emailController.text, _passwordController.text);
+                },
                 child: Container(
                     height: 50,
                     width: MediaQuery.of(context).size.width - 40,
