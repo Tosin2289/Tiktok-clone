@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:tiktok_clone/controller/auth_controller.dart';
 import '../../../constants/constants.dart';
 import '../../widgets/text_input_field.dart';
 
@@ -39,8 +40,10 @@ class SignupScreen extends StatelessWidget {
                       bottom: -6,
                       left: 80,
                       child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Iconsax.add_circle)))
+                          onPressed: () {
+                            authController.pickImage();
+                          },
+                          icon: const Icon(Iconsax.profile_circle)))
                 ],
               ),
               const SizedBox(
@@ -71,6 +74,7 @@ class SignupScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: TextInputField(
+                  isObscure: true,
                   controller: _passwordController,
                   labelText: 'Password',
                   icon: Iconsax.password_check,
@@ -80,7 +84,13 @@ class SignupScreen extends StatelessWidget {
                 height: 30,
               ),
               InkWell(
-                onTap: () {},
+                onTap: () async {
+                  authController.registerUser(
+                      _usernameController.text,
+                      _emailController.text,
+                      _passwordController.text,
+                      authController.profilePhoto);
+                },
                 child: Container(
                     height: 50,
                     width: MediaQuery.of(context).size.width - 40,
@@ -120,5 +130,3 @@ class SignupScreen extends StatelessWidget {
     );
   }
 }
-
-class _passwordController {}

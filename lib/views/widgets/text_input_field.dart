@@ -22,8 +22,9 @@ class TextInputField extends StatelessWidget {
       obscureText: isObscure,
       controller: controller,
       decoration: InputDecoration(
-        labelText: labelText,
+        hintText: labelText,
         prefixIcon: Icon(icon),
+        prefixIconColor: Colors.grey,
         labelStyle: const TextStyle(
           fontSize: 20,
         ),
