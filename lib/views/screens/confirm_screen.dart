@@ -1,10 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:get/get.dart';
+import 'package:tiktok_clone/controller/upload_video_controller.dart';
 import 'package:video_player/video_player.dart';
-
 import '../../constants/constants.dart';
 
 class ConfirmScreen extends StatefulWidget {
@@ -39,6 +38,8 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
     controller.setLooping(true);
   }
 
+  UploadVideoController uploadVideoController =
+      Get.put(UploadVideoController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,7 +102,10 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: buttonColor),
-                      onPressed: () {},
+                      onPressed: () => uploadVideoController.uploadVildeo(
+                          songController.text,
+                          captionController.text,
+                          widget.videoPath),
                       child: const Text("Share",
                           style: TextStyle(fontSize: 20, color: Colors.white)))
                 ],
