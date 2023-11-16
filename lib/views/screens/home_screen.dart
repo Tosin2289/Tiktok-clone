@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(Icons.person_outline, size: 30), label: "Profile"),
         ],
       ),
-      body: const Center(child: Text('HomeScreen')),
+      body: pages[pageindex],
     );
   }
 }
