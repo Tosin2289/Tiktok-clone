@@ -38,6 +38,12 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
     controller.setLooping(true);
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
+
   UploadVideoController uploadVideoController =
       Get.put(UploadVideoController());
   @override

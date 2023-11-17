@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../controller/auth_controller.dart';
 import '../views/screens/add_video_screen.dart';
+import '../views/screens/video_screen.dart';
 
 // COLORS
 const backgroundColor = Colors.black;
@@ -21,7 +22,7 @@ var authController = AuthController.instance;
 
 //Pages
 const pages = [
-  Center(child: Text("Home Screen")),
+  VideoScreen(),
   Center(child: Text("Search Screen")),
   AddVideoScreen(),
   Center(child: Text("Messages Screen")),
