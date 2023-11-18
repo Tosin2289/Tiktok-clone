@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timeago/timeago.dart' as tago;
+import '../../constants/constants.dart';
 import '../../controller/comment_controller.dart';
 
 class CommentScreen extends StatelessWidget {
@@ -36,7 +37,7 @@ class CommentScreen extends StatelessWidget {
                       ),
                       title: Wrap(children: [
                         Text(
-                          comment.username,
+                          '${comment.username}  ',
                           style: const TextStyle(
                               fontSize: 20,
                               color: Colors.red,
@@ -62,7 +63,15 @@ class CommentScreen extends StatelessWidget {
                                 fontSize: 12, color: Colors.white))
                       ]),
                       trailing: IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.favorite)),
+                          onPressed: () =>
+                              commentControllers.likeComment(comment.id),
+                          icon: Icon(
+                            Icons.favorite,
+                            color:
+                                comment.likes.contains(authController.user.uid)
+                                    ? Colors.red
+                                    : Colors.white,
+                          )),
                     );
                   });
             }),
