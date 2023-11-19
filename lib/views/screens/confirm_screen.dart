@@ -108,10 +108,11 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: buttonColor),
-                      onPressed: () => uploadVideoController.uploadVildeo(
-                          songController.text,
-                          captionController.text,
-                          widget.videoPath),
+                      onPressed: () {
+                        uploadVideoController.uploadVildeo(songController.text,
+                            captionController.text, widget.videoPath);
+                        Navigator.of(context).pop;
+                      },
                       child: const Text("Share",
                           style: TextStyle(fontSize: 20, color: Colors.white)))
                 ],
