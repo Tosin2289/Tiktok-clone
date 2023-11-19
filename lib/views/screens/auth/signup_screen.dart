@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:tiktok_clone/controller/auth_controller.dart';
 import '../../../constants/constants.dart';
 import '../../widgets/text_input_field.dart';
+import 'login_screen.dart';
 
 class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});
@@ -118,7 +119,10 @@ class SignupScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 20),
                     ),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () =>
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            )),
                         child: Text(
                           "Login",
                           style: TextStyle(fontSize: 20, color: buttonColor),

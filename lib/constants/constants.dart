@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../controller/auth_controller.dart';
 import '../views/screens/add_video_screen.dart';
+import '../views/screens/profile_screen.dart';
 import '../views/screens/search_screen.dart';
 import '../views/screens/video_screen.dart';
 
@@ -27,5 +28,7 @@ List pages = [
   SearchScreen(),
   const AddVideoScreen(),
   const Center(child: Text("Messages Screen")),
-  const Center(child: Text("Profile Screen")),
+  ProfileScreen(
+    uid: authController.user.uid,
+  ),
 ];
